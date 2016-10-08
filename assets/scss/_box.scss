@@ -37,23 +37,13 @@ display : block;
     }
 
     .box-actions {
+      margin-top: 2px;
       display: flex;
       float : right;
       overflow : hidden;
       a {
-        background : url('/static/imgs/sprite.png');
         margin : 5px;
-        width : 18px;
-        height: 18px;
-
-        &.close {
-          background-position: -18px 0;
-        }
-        &.maximize {
-          background-position: -36px 0;
-        }
       }
-
     }
   }
 
