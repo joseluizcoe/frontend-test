@@ -1,0 +1,16 @@
+.avatar {
+  margin-bottom: 15px;
+  &:before{
+    margin-top : 10px;
+  }
+  &.you {
+    clear : left;
+    float : right;
+    margin-left : 20px;
+  }
+  &.not-you {
+    margin-right: 0px;
+    clear: right;
+    float : left;
+  }
+}
