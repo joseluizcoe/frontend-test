@@ -7,7 +7,7 @@ display : block;
 
 
 .box {
-  @include shadow(0.2);
+  @include shadow(0.25);
   position : absolute;
   bottom : 0;
   right : 0;
@@ -41,9 +41,19 @@ display : block;
       float : right;
       overflow : hidden;
       a {
+        background : url('/static/imgs/sprite.png');
         margin : 5px;
-        border : 1px solid #fff;
+        width : 18px;
+        height: 18px;
+
+        &.close {
+          background-position: -18px 0;
+        }
+        &.maximize {
+          background-position: -36px 0;
+        }
       }
+
     }
   }
 
@@ -58,5 +68,27 @@ display : block;
     display: block;
     padding : 0;
     margin : 0;
+    position : relative;
+    .actions {
+      float : right;
+      width : 34px;
+      height : 68px;
+      position : absolute;
+      right : 16px;
+      top : 16px;
+      a {
+        background : #eee;
+        width : 100%;
+        height : 34px;
+        display : block;
+
+        &.send {
+          background : blue;
+        }
+        &.clear {
+          background : #ccc;
+        }
+      }
+    }
   }
 }

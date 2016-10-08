@@ -11,4 +11,8 @@ textarea {
   color : #b3b3b3;
   font-style: italic;
   resize: none;
+
+  &:focus {
+    @include inner-shadow-rgba($rgb_shadow_blue, 1);
+  }
 }
