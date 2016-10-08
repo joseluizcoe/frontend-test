@@ -1,44 +1,82 @@
 .msg{
   background : #ddd;
   color : #666666;
-  width: 426px;
+  width: 406px;
   padding : 10px;
   margin-bottom : 6px;
   font-family: Arial;
   font-size: 16px;
   font-style: italic;
   position: relative;
+
+  .text {
+    display : inline-block;
+    width : 65%;
+    vertical-align: top;
+  }
+
+  .about {
+    vertical-align: bottom;
+    display : inline-block;
+    width : 32%;
+    height : 100%;
+
+    .username,
+    .companyname {
+      display : block;
+      font-size: 14px;
+    }
+
+    .time {
+      display : block;
+      font-size : 11px;
+    }
+  }
+  .status {
+    width : 18px;
+    height : 18px;
+    display : block;
+    margin-top : 2px;
+  }
+
   &.you {
+    clear : left;
     display: block;
-    margin-left: 40px;
+    margin-left: 25px;
     &:after {
       content: '';
       position: absolute;
       display: block;
-      right: -10px;
+      right: -7px;
       top : 8px;
       border-style: solid;
-      border-width: 10px 0 10px 10px;
+      border-width: 7px 0 7px 7px;
       border-color: transparent transparent transparent #ddd;
     }
     .avatar {
       float : right;
     }
+
+    .about {
+      text-align : right;
+    }
   }
   &.not-you {
+    clear : right;
     margin-left: 10px;
+    float : left;
     &:before {
+      clear : right;
       content: '';
       position: absolute;
       display: block;
-      left: -20px;
+      left: -14px;
       top : 8px;
       border-style: solid;
-      border-width: 10px 10px 10px 10px;
+      border-width: 7px 7px 7px 7px;
       border-color: transparent #ddd transparent transparent;
     }
-    .avatar {
-      float : left;
-    }
+
   }
+
 }

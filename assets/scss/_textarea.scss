@@ -14,5 +14,6 @@ textarea {
 
   &:focus {
     @include inner-shadow-rgba($rgb_shadow_blue, 1);
+    color : #666666;
   }
 }
