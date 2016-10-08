@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "startNodemon": "nodemon app.js"
+    "startNodemon": "nodemon app.js",
     "build-css": "node-sass --include-path scss assets/scss/main.scss public/css/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\" "
   },
