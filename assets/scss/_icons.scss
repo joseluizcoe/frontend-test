@@ -1,0 +1,34 @@
+.icon {
+  background : url('/static/imgs/sprite.png');
+  width : 18px;
+  height: 18px;
+
+  &.minimize {
+    background-position: 0 0;
+  }
+
+  &.close {
+    background-position: -18px 0;
+  }
+
+  &.maximize {
+    background-position: -36px 0;
+  }
+
+  &.send {
+    background-position: -54px 0;
+  }
+
+  &.trash {
+    background-position : -72px 0;
+  }
+
+  &.sending {
+    background-position: -90px 0;
+  }
+
+  &.sent {
+    background-position: -108px 0;
+  }
+
+}
