@@ -1,0 +1,62 @@
+.box,
+.box-header,
+.box-body,
+.box-footer {
+display : block;
+}
+
+
+.box {
+  @include shadow(0.2);
+  position : absolute;
+  bottom : 0;
+  right : 0;
+  margin : 0 15px;
+  width : 600px;
+  height : 545px;
+  overflow : hidden;
+
+  .box-header {
+    background: #005da4;
+    color : #fff;
+    overflow : hidden;
+    padding : 0 15px;
+    height : 36px;
+    margin : 0;
+    display : block;
+
+    .box-title {
+      font-family: Arial;
+      font-style: italic;
+      font-weight : normal;
+      font-size : 18px;
+      vertical-align: bottom;;
+      display: inline-block;
+      margin : 0;
+      padding : 6px 0;
+    }
+
+    .box-actions {
+      display: flex;
+      float : right;
+      overflow : hidden;
+      a {
+        margin : 5px;
+        border : 1px solid #fff;
+      }
+    }
+  }
+
+  .box-body {
+    height : 380px;
+    overflow-y : auto;
+    margin : 15px;
+  }
+
+  .box-footer {
+    border-top : 1px solid #eee;
+    display: block;
+    padding : 0;
+    margin : 0;
+  }
+}

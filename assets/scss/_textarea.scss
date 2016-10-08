@@ -1,0 +1,14 @@
+textarea {
+  @include inner-shadow(0.1);
+  width : 550px;
+  height : 50px;
+  margin : 15px;
+  background : #f1f1f1;
+  border : none;
+  font-size : 14px;
+  font-family: Arial;
+  padding : 10px;
+  color : #b3b3b3;
+  font-style: italic;
+  resize: none;
+}
