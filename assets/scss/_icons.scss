@@ -1,7 +1,8 @@
 .icon {
-  background : url('/static/imgs/sprite.png');
+  background-image : url('/static/imgs/sprite.png');
   width : 18px;
   height: 18px;
+  display : inline-block;
 
   &.minimize {
     background-position: 0 0;
