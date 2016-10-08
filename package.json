@@ -6,11 +6,16 @@
   "scripts": {
     "start": "node app.js",
     "startNodemon": "nodemon app.js"
+    "build-css": "node-sass --include-path scss assets/scss/main.scss public/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\" "
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.3",
     "shell-arguments": "^1.0.4"
+  },
+  "devDependencies": {
+    "node-sass": "^3.10.1"
   }
 }
