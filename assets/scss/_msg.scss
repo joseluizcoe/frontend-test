@@ -1,0 +1,44 @@
+.msg{
+  background : #ddd;
+  color : #666666;
+  width: 426px;
+  padding : 10px;
+  margin-bottom : 6px;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: italic;
+  position: relative;
+  &.you {
+    display: block;
+    margin-left: 40px;
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      right: -10px;
+      top : 8px;
+      border-style: solid;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent #ddd;
+    }
+    .avatar {
+      float : right;
+    }
+  }
+  &.not-you {
+    margin-left: 10px;
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: -20px;
+      top : 8px;
+      border-style: solid;
+      border-width: 10px 10px 10px 10px;
+      border-color: transparent #ddd transparent transparent;
+    }
+    .avatar {
+      float : left;
+    }
+  }
+}
