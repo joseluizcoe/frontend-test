@@ -1,0 +1,23 @@
+/* Shadow */
+@mixin shadow-rgba($rgb_color, $opacity) {
+  -webkit-box-shadow : 0px 0px 10px 0px rgba($rgb_color, $opacity);
+  -moz-box-shadow    : 0px 0px 10px 0px rgba($rgb_color, $opacity);
+  box-shadow         : 0px 0px 10px 0px rgba($rgb_color, $opacity);
+}
+
+@mixin shadow($opacity) {
+  $rgba_color : $rgb_black;
+  @include shadow-rgba($rgba_color, $opacity);
+}
+
+/* Inner Shadow */
+@mixin inner-shadow-rgba($rgb_color, $opacity) {
+  -webkit-box-shadow : inset 0px 0px 10px 0px rgba($rgb_color, $opacity);
+  -moz-box-shadow    : inset 0px 0px 10px 0px rgba($rgb_color, $opacity);
+  box-shadow         : inset 0px 0px 10px 0px rgba($rgb_color, $opacity);
+}
+
+@mixin inner-shadow($opacity) {
+  $rgba_color : $rgb_black;
+  @include inner-shadow-rgba($rgba_color, $opacity);
+}
