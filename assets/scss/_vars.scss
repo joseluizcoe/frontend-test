@@ -1,8 +1,23 @@
-$black : "#666666";
-$blue  : "#005da4";
-$shadow_blue : "#b8cddd";
+/* Rgb colors */
+$black : #666666;
+$blue  : #005da4;
+$shadow_blue : #b8cddd;
+
+/* Btns colors */
+$btn_primary_color: #4789bb;
+$btn_trash_color: #dedede;
 
 /* Rgba colors */
 $rgb_black : rgb(0,0,0);
 $rgb_blue  : rgb(0,93,164);
 $rgb_shadow_blue : rgb(184, 205, 221);
+
+
+/* breakpoints - Responsive */
+
+$breakpoints: (
+  'small': (640px),
+  'medium': (767px),
+  'large': (992px),
+  'extra-large': (1200px)
+);
