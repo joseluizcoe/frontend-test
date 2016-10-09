@@ -1,0 +1,14 @@
+@mixin breakpoint($point) {
+
+  $this_point: map-get($breakpoints, $point);
+
+  @if $this_point != null {
+    @media (min-width: $this_point) {
+      @content;
+    }
+  }
+  @else {
+    @warn "The breakpoint `#{$point}` must be on _vars.scss.";
+  }
+
+}
