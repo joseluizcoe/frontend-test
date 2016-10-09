@@ -1,20 +1,28 @@
 .box,
 .box-header,
-.box-body,
-.box-footer {
+.box-body {
 display : block;
 }
 
 .box {
   @include shadow(0.25);
-  position : absolute;
-  bottom : 0;
-  right : 0;
-  margin : 0 15px;
-  padding : 0;
-  width : 600px;
-  height : 545px;
+  width : 100%;
+  height: 100vh;
+  margin-top : 0;
+  margin : 0;
   overflow : hidden;
+
+  @include breakpoint('small') {
+    position : absolute;
+    margin-top : 20%;
+    bottom : 0;
+    right : 0;
+    margin : 0 15px;
+    padding : 0;
+    width : 600px;
+    height : 545px;
+  }
+
 
   .box-header {
     background: #005da4;
@@ -48,9 +56,14 @@ display : block;
   }
 
   .box-body {
-    height : 380px;
+    height : calc(100vh - 175px);
     margin : 15px;
     overflow-y : auto;
+
+    @include breakpoint('small') {
+      height : 380px;
+    }
+
     .break {
       clear: both;
       display: block;
@@ -59,41 +72,11 @@ display : block;
     }
   }
 
-  .box-footer {
-    border-top : 1px solid #eee;
-    display: block;
-    padding : 0;
-    margin : 0;
-    position : relative;
-    .actions {
-      float : right;
-      width : 34px;
-      height : 68px;
-      position : absolute;
-      right : 16px;
-      top : 16px;
-      a {
-        background : #eee;
-        width : 100%;
-        height : 24px;
-        display : block;
-        text-align: center;
-        padding  : 5px 0;
-
-        &.send {
-          background : #4789bb;
-        }
-        &.clear {
-          background : #dedede;
-        }
-      }
-    }
-  }
 
   &.box-closed {
     height : 38px;
     .box-body ,
-    .box-footer {
+    .msg-form {
       display : none;
     }
   }

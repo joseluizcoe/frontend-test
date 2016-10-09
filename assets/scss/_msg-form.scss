@@ -1,0 +1,57 @@
+.msg-form {
+  @extend .boxsizingBorder;
+  background: #fff;
+  border-top : 1px solid #eee;
+  display: block;
+  padding : 0;
+  margin : 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  @include breakpoint('small'){
+    position : relative;
+  }
+
+  textarea {
+    @extend .boxsizingBorder;
+    @include inner-shadow(0.1);
+    height : 70px;
+    width : 94%;
+    margin : 15px 3%;
+    background : #f1f1f1;
+    border : none;
+    font-size : 14px;
+    font-family: Arial;
+    padding : 10px;
+    color : #b3b3b3;
+    font-style: italic;
+    resize: none;
+
+    &:focus {
+      @include inner-shadow-rgba($rgb_shadow_blue, 1);
+      color : #666666;
+    }
+  }
+
+  .actions {
+    width : 34px;
+    height : 68px;
+    position : absolute;
+    right : 3%;
+    top : 16px;
+    .send {
+      background-color : $btn_primary_color;
+    }
+    .clear {
+      background-color : $btn_trash_color;
+    }
+    a {
+      width : 100%;
+      height : 24px;
+      display : block;
+      text-align: center;
+      padding  : 5px 0;
+    }
+  }
+}

@@ -1,16 +1,23 @@
 .avatar {
+  width : 15%;
   margin-bottom: 15px;
+
+  @include breakpoint('small'){
+    width: 92px;
+    height: 92px;
+  }
+
   &:before{
     margin-top : 10px;
   }
   &.you {
-    clear : left;
-    float : right;
-    margin-left : 20px;
+    clear: left;
+    float: right;
+    margin-left: 20px;
   }
   &.not-you {
     margin-right: 0px;
     clear: right;
-    float : left;
+    float: left;
   }
 }
