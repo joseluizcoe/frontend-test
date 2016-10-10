@@ -27,67 +27,25 @@
       </div>
     </header>
 
-    <div type="text/ng-template" id="chatCatho" ng-app="chatCatho">
-      <div class="box box-chat {{ box_class }}" ng-controller="ChatBox">
-        <div class="box-header">
-          <h1 class="box-title">Vaga: Desenvolvedor Front-end</h1>
-          <div class="box-actions">
-            <a href="#" class="resize"   ng-click="minimize()"><i class="icon minimize"></i></a>
-            <a href="#" class="maximize" ng-click="resize()"><i class="icon resize"></i></a>
-            <a href="#" class="close"    ng-click="close()"><i class="icon close"></i></a>
-          </div>
-        </div>
 
-        <div class="box-body" ng-controller="MessageListCtrl" scroll-glue>
-          <span ng-repeat="talk in talks track by $index">
-            <div ng-if="($index==0) || ($index > 0 && talks[$index-1].user.id != talk.user.id)">
-              <span class="break" />
-              <img src="/static/imgs/user-{{talk.user.id}}.jpg" alt="" class="avatar {{ css_message(talk.user) }}">
-            </div>
-            <div class="chat-msg {{ css_message(talk.user) }}">
-              <div class="text">{{ talk.message.message }}</div>
-              <span class="status" ng-if="talk.user.id == user.id && talk.message.alreadyRead"><i class="sent icon"></i></span>
-              <span class="status" ng-if="talk.user.id == user.id && !talk.message.alreadyRead"><i class="sending icon"></i></span>
-              <div class="about">
-                <span class="username">{{ talk.user.name }}</span>
-                <strong class="companyname" ng-if="talk.company.name">{{ talk.company.name }}</strong>
-                <span class="time">enviado as {{ talk.message.time | fromNow }}</span>
-              </div>
-            </div>
-          </span>
-        </div>
-
-        <div class="msg-form" ng-controller="MesssageForm">
-          <div class="actions {{ form_action_class }}">
-            <a ng-click="sendMessage()" class="send"><i class="icon send"></i></a>
-            <a ng-click="clearMessage()" class="clear"><i class="icon trash"></i></a>
-          </div>
-          <textarea id="TextAreaMesssageForm" ng-attr-placeholder="{{ placeholder }}" ng-change="textChange()" ng-model="text_message" rows="4" cols="40">{{ text_message }}</textarea>
+  <div id="chatCatho"></div>
+    <footer id="bottom" class="footer b2c">
+      <div class="bottomBarContainer b2c">
+        <div class="bottomBar container clearfix">
+          <span class="logoCathoFooter hiddenText">Catho</span>
+          <p>
+            <span class="razaoSocial">Catho Online Ltda.</span>
+            <span class="cnpj">CNPJ: 03.753.088/0001-00</span>
+            <span class="address">Alameda Juari, 262 - Barueri, SP - 06460-090</span>
+            <span class="politica">
+              <a rel="nofollow" target="_blank" href="http://www.catho.com.br/institucional/privacidade-relacionamento/">Política de Privacidade</a>
+            </span>
+          </p>
         </div>
       </div>
-    </div>
-
-    <footer id="bottom" class="footer b2c">
-
-                <div class="bottomBarContainer b2c">
-        <div class="bottomBar container clearfix">
-                        <span class="logoCathoFooter hiddenText">Catho</span>
-
-            <p>
-                <span class="razaoSocial">Catho Online Ltda.</span>
-                <span class="cnpj">CNPJ: 03.753.088/0001-00</span>
-                <span class="address">Alameda Juari, 262 - Barueri, SP - 06460-090</span>
-
-                                <span class="politica">
-                        <a rel="nofollow" target="_blank" href="http://www.catho.com.br/institucional/privacidade-relacionamento/">Política de Privacidade</a>
-                    </span>
-                        </p>
-        </div>
-    </div>
-        </footer>
+    </footer>
   <!-- Scripts -->
-  <script src="/static/js/vendor.js"></script>
-  <script src="/static/js/chat.js"></script>
+  <script src="/static/js/init.js" type="text/javascript"></script>
 
   </body>
 </html>
