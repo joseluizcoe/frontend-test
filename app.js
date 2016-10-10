@@ -2,11 +2,7 @@ var express = require("express"),
     app = express(),
     http = require("http"),
     path = require("path"),
-    arguments = require("shell-arguments"),
-    jade = require("jade"),
-    React = require('react'),
-    ReactDOMServer = require('react-dom/server');
-
+    arguments = require("shell-arguments");
 global.CONFIG = require("./config");
 require("./routes")(app);
 
