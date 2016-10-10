@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="chatCatho">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,81 +15,47 @@
   </head>
   <body>
 
-    <div class="box box-chat">
+
+    <div class="box box-chat {{ box_class }}" ng-controller="ChatBox">
       <div class="box-header">
         <h1 class="box-title">Vaga: Desenvolvedor Front-end</h1>
         <div class="box-actions">
-          <a href="#" class="icon resize"></a>
-          <a href="#" class="icon maximize"></a>
-          <a href="#" class="icon close"></a>
+          <a href="#" class="resize"   ng-click="minimize()"><i class="icon minimize"></i></a>
+          <a href="#" class="maximize" ng-click="resize()"><i class="icon resize"></i></a>
+          <a href="#" class="close"    ng-click="close()"><i class="icon close"></i></a>
         </div>
       </div>
-      <div class="box-body">
 
-        <span class="break"></span>
-        <img src="/static/imgs/user-1439505.jpg" alt="" class="avatar not-you">
-        <div class="msg not-you">
-          <div class="text">Claro. A Catho fica próximo ao shopping Tamboré, ao lado do prédio da Engevix.</div>
-          <div class="about">
-            <span class="username">Você</span>
-            <strong class="companyname">Empresa</strong>
-            <span class="time">enviado as 18h28</span>
+      <div class="box-body" ng-controller="MessageListCtrl" scroll-glue>
+        <span ng-repeat="talk in talks track by $index">
+          <div ng-if="($index==0) || ($index > 0 && talks[$index-1].user.id != talk.user.id)">
+            <span class="break" />
+            <img src="/static/imgs/user-{{talk.user.id}}.jpg" alt="" class="avatar {{ css_message(talk.user) }}">
           </div>
-        </div>
-
-        <span class="break"></span>
-        <img src="/static/imgs/user-9483484.jpg" alt="" class="avatar you">
-        <div class="msg you">
-          <div class="text">Claro Renata, amanhã estarei por ai.
-            <span class="status"><i class="sent icon"></i></span>
+          <div class="msg {{ css_message(talk.user) }}">
+            <div class="text">{{ talk.message.message }}</div>
+            <span class="status" ng-if="talk.user.id == user.id && talk.message.alreadyRead"><i class="sent icon"></i></span>
+            <span class="status" ng-if="talk.user.id == user.id && !talk.message.alreadyRead"><i class="sending icon"></i></span>
+            <div class="about">
+              <span class="username">{{ talk.user.name }}</span>
+              <strong class="companyname" ng-if="talk.company.name">{{ talk.company.name }}</strong>
+              <span class="time">enviado as {{ talk.message.time | fromNow }}</span>
+            </div>
           </div>
-          <div class="about">
-            <span class="username">Você</span>
-            <span class="time">enviado as 18h28</span>
-          </div>
-        </div>
-
-        <div class="msg you">
-          <div class="text">Você pode me passar um ponto de referência por favor?
-            <span class="status"><i class="sent icon"></i></span>
-          </div>
-          <div class="about">
-            <span class="time">enviado as 18h28</span>
-          </div>
-        </div>
-
-        <span class="break"></span>
-        <img src="/static/imgs/user-1439505.jpg" alt="" class="avatar not-you">
-        <div class="msg not-you">
-          <div class="text">Claro. A Catho fica próximo ao shopping Tamboré, ao lado do prédio da Engevix.</div>
-          <div class="about">
-            <span class="username">Você</span>
-            <strong class="companyname">Empresa</strong>
-            <span class="time">enviado as 18h28</span>
-          </div>
-        </div>
-
-        <span class="break"></span>
-        <img src="/static/imgs/user-9483484.jpg" alt="" class="avatar you">
-        <div class="msg you">
-          <div class="text">Ótimo! Muito obrigado! <br/>
-            Amanhã estarei por ai
-            <span class="status"><i class="sending icon"></i></span>
-          </div>
-          <div class="about">
-            <span class="username">Você</span>
-            <span class="time">enviado a poucos segundos</span>
-          </div>
-        </div>
-
+        </span>
       </div>
-      <div class="msg-form">
-        <div class="actions">
-          <a href="" class="send"><i class="icon send"></i></a>
-          <a href="" class="clear"><i class="icon trash"></i></a>
+
+      <div class="msg-form" ng-controller="MesssageForm">
+        <div class="actions {{ form_action_class }}">
+          <a ng-click="sendMessage()" class="send"><i class="icon send"></i></a>
+          <a ng-click="clearMessage()" class="clear"><i class="icon trash"></i></a>
         </div>
-        <textarea placeholder="Digite aqui sua mensagem..." name="msg" rows="4" cols="40"></textarea>
+        <textarea id="TextAreaMesssageForm" ng-attr-placeholder="{{ placeholder }}" ng-change="textChange()" ng-model="text_message" rows="4" cols="40">{{ text_message }}</textarea>
       </div>
     </div>
+    <!-- Scripts -->
+    <script src="/static/js/vendor.js"></script>
+    <script src="/static/js/chat.js"></script>
+
   </body>
 </html>
