@@ -12,10 +12,10 @@
     "watch-css": "nodemon -e scss -x \"npm run build-css\" ",
     "concat-vendor-js": "concat-cli -f assets/js/vendor/moment.min.js assets/js/vendor/angular.min.js assets/js/vendor/angular/*.js -o public/js/vendor.js",
     "concat-chat-js": "concat-cli -f assets/js/chat.js assets/js/chat/**/*.js -o public/js/chat.js",
-    "concat-js": "npm run create-folders && npm run concat-chat-js && npm run concat-vendor-js",
+    "concat-js": "npm run concat-chat-js && npm run concat-vendor-js",
     "concat-all-js": "concat-cli -f public/js/vendor.js public/js/chat.js -o public/js/all.js",
     "copy-init-js": "cp -R assets/js/init.js public/js/init.js",
-    "build": "npm run create-folders && npm run update-images && npm run copy-init-js && npm run concat-js && npm run build-css && npm run concat-all-js && npm run startNodemon"
+    "build": "npm install && npm run create-folders && npm run update-images && npm run copy-init-js && npm run concat-js && npm run build-css && npm run concat-all-js && npm run startNodemon"
   },
   "author": "",
   "license": "MIT",
