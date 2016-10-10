@@ -49,5 +49,5 @@ window.onload = function(){
     var element = document.getElementById("chatCatho");
     element.innerHTML = template;
     loadjs("/static/js/all.js");
-  }, 3000);
+  }, 300);
 }
