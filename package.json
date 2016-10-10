@@ -6,14 +6,16 @@
   "scripts": {
     "start": "node app.js",
     "startNodemon": "nodemon app.js",
-    "update-images": "cp -R assets/imgs public/imgs",
-    "create-js-folder": "mkdir -p public/js",
+    "update-images": "cp -R assets/imgs public/",
+    "create-folders": "mkdir -p public/js && mkdir -p public/css & mkdir -p public/imgs",
     "build-css": "node-sass --include-path scss assets/scss/main.scss public/css/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\" ",
     "concat-vendor-js": "concat-cli -f assets/js/vendor/moment.min.js assets/js/vendor/angular.min.js assets/js/vendor/angular/*.js -o public/js/vendor.js",
     "concat-chat-js": "concat-cli -f assets/js/chat.js assets/js/chat/**/*.js -o public/js/chat.js",
-    "concat-js": "npm run create-js-folder && npm run concat-chat-js && npm run concat-vendor-js",
-    "build": "npm run concat-js && npm run build-css && npm run startNodemon"
+    "concat-js": "npm run create-folders && npm run concat-chat-js && npm run concat-vendor-js",
+    "concat-all-js": "concat-cli -f public/js/vendor.js public/js/chat.js -o public/js/all.js",
+    "copy-init-js": "cp -R assets/js/init.js public/js/init.js",
+    "build": "npm run create-folders && npm run update-images && npm run copy-init-js && npm run concat-js && npm run build-css && npm run concat-all-js && npm run startNodemon"
   },
   "author": "",
   "license": "MIT",
