@@ -8,7 +8,7 @@
     "startNodemon": "nodemon app.js",
     "update-images": "cp -R assets/imgs public/",
     "create-folders": "mkdir -p public/js && mkdir -p public/css & mkdir -p public/imgs",
-    "build-css": "node-sass --include-path scss assets/scss/main.scss public/css/main.css",
+    "build-css": "node-sass --include-path scss assets/scss/main.scss public/css/main.css && cp assets/css/site-catho.css public/css/site-catho.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\" ",
     "concat-vendor-js": "concat-cli -f assets/js/vendor/moment.min.js assets/js/vendor/angular.min.js assets/js/vendor/angular/*.js -o public/js/vendor.js",
     "concat-chat-js": "concat-cli -f assets/js/chat.js assets/js/chat/**/*.js -o public/js/chat.js",
